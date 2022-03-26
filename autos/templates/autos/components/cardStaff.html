@@ -1,0 +1,20 @@
+{% load static %}
+<div class="card">
+    <a href="autos/{{emp.id}}/detail">
+    {% if emp.image.url %}
+      <img class="card-img-top" src="static/images/avatar/{{emp.image}}" alt="">
+    {% else %}
+    <img class="card-img-top" src="{% static 'images/favicon.ico' %}" alt="">
+    {% endif %}
+      </a>
+  
+    <div class="card-body">
+      <h6 class="card-title">
+        {{emp.firstname}} {{emp.lastname}}  </h6>
+      <p class="card-text">
+          {{ emp.dept}}</span>
+        
+      </p>
+
+    </div>
+  </div>

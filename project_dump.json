@@ -1,0 +1,1480 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$e3pSsWZezQP5$dG2ROfcXwsD+ax1FDOycojgUc8ZL0puULYBbi+flD2M=",
+        "last_login": "2021-12-10T01:34:19.640Z",
+        "is_superuser": true,
+        "username": "superuser1",
+        "first_name": "",
+        "last_name": "",
+        "email": "gmeyer49s@email.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-12-10T01:29:59.992Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$l2DzPIOi6opF$Cd+I/us5R8UkSDHWw5svzzZ9ImpdCX3t+XCYG5b+yzI=",
+        "last_login": "2021-12-13T19:12:39.938Z",
+        "is_superuser": false,
+        "username": "testuser1",
+        "first_name": "Johnny",
+        "last_name": "Walker",
+        "email": "jwalker999@yahoo.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-12-10T01:48:55.359Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$3Dfyxh8T8fsg$5B6uAH1kyfVqX+FcE4ceV1feljyYGTxpLOwURvt4ZPU=",
+        "last_login": "2021-12-13T22:35:06.945Z",
+        "is_superuser": false,
+        "username": "testuser2",
+        "first_name": "Johnny",
+        "last_name": "Walker",
+        "email": "jwalker999@yahoo.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-12-13T17:29:50.608Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$L6V5aJi4RscS$26Y2r00BdG9yqNHwsE4BtUg0V6XCi14AeGefJ3iPqUk=",
+        "last_login": "2021-12-13T18:45:12.074Z",
+        "is_superuser": false,
+        "username": "testuser3",
+        "first_name": "Lebron",
+        "last_name": "James",
+        "email": "ljames@att.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-12-13T18:45:03.034Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "kj0j5pfppdedwino1e5jo9qb5hmtlldh",
+    "fields": {
+        "session_data": ".eJxVjEEOgjAQRe_StWlaoNMZl-45A5kyo0VNSSisjHdXEha6_e-9_zIDb2setqrLMIk5m8acfrfE40PLDuTO5TbbcS7rMiW7K_ag1faz6PNyuH8HmWv-1q6DlqIAAzAF9oRBkCIhMYpHDk6igiNUajoF9KyhTa5DaH2K12DeH7WyNrQ:1mwqkZ:mYWhst1wNaYUONyLeX0C3uFmKhIIVOsBwNagPsC-2Mk",
+        "expire_date": "2021-12-27T19:12:39.942Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "nj9ls2sm93kzz60zgoz10n649uds3s10",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2pDQAQIu3XsGMjMMUjUlKe2q8e62SRe6_e-9v6mE61LT2mVOY1ZXBeryuxHyS6YD5CdOj6a5Tcs8kj4UfdKu7y3L-3a6fwcVe91ri75wsR5pMAzsIUZyIToKwQuDtYLWOBQzcAm8awGhAJQQCwk6Up8v92k4zw:1mwtuU:NH_93J3B-GBTqSO4WkaRVFBnZco1DBzC2om_0lsvBTo",
+        "expire_date": "2021-12-27T22:35:06.981Z"
+    }
+},
+{
+    "model": "autos.make",
+    "pk": 1,
+    "fields": {
+        "name": "Accura"
+    }
+},
+{
+    "model": "autos.make",
+    "pk": 2,
+    "fields": {
+        "name": "Audi"
+    }
+},
+{
+    "model": "autos.make",
+    "pk": 3,
+    "fields": {
+        "name": "BMW"
+    }
+},
+{
+    "model": "autos.make",
+    "pk": 4,
+    "fields": {
+        "name": "Chevrolet"
+    }
+},
+{
+    "model": "autos.make",
+    "pk": 5,
+    "fields": {
+        "name": "Ferarri"
+    }
+},
+{
+    "model": "autos.make",
+    "pk": 6,
+    "fields": {
+        "name": "Nissan"
+    }
+},
+{
+    "model": "autos.make",
+    "pk": 7,
+    "fields": {
+        "name": "Porsche"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 1,
+    "fields": {
+        "make": 1,
+        "name": "Integra"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 2,
+    "fields": {
+        "make": 2,
+        "name": "A4"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 3,
+    "fields": {
+        "make": 2,
+        "name": "R8"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 4,
+    "fields": {
+        "make": 3,
+        "name": "320i"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 5,
+    "fields": {
+        "make": 4,
+        "name": "Corvette"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 6,
+    "fields": {
+        "make": 4,
+        "name": "Camaro"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 7,
+    "fields": {
+        "make": 4,
+        "name": "F150"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 8,
+    "fields": {
+        "make": 4,
+        "name": "Malibu"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 9,
+    "fields": {
+        "make": 5,
+        "name": "F8"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 10,
+    "fields": {
+        "make": 6,
+        "name": "Altima"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 11,
+    "fields": {
+        "make": 7,
+        "name": "911"
+    }
+},
+{
+    "model": "autos.model",
+    "pk": 12,
+    "fields": {
+        "make": 7,
+        "name": "944"
+    }
+},
+{
+    "model": "autos.trim",
+    "pk": 1,
+    "fields": {
+        "make": 1,
+        "model": 1,
+        "name": "GL"
+    }
+},
+{
+    "model": "autos.category",
+    "pk": 1,
+    "fields": {
+        "name": "Coups"
+    }
+},
+{
+    "model": "autos.category",
+    "pk": 2,
+    "fields": {
+        "name": "Convertable"
+    }
+},
+{
+    "model": "autos.category",
+    "pk": 3,
+    "fields": {
+        "name": "Sedans"
+    }
+},
+{
+    "model": "autos.category",
+    "pk": 4,
+    "fields": {
+        "name": "SUV"
+    }
+},
+{
+    "model": "autos.category",
+    "pk": 5,
+    "fields": {
+        "name": "Trucks"
+    }
+},
+{
+    "model": "autos.feature",
+    "pk": 1,
+    "fields": {
+        "name": "Air conditioning"
+    }
+},
+{
+    "model": "autos.feature",
+    "pk": 2,
+    "fields": {
+        "name": "Power windows"
+    }
+},
+{
+    "model": "autos.feature",
+    "pk": 3,
+    "fields": {
+        "name": "Navigation display"
+    }
+},
+{
+    "model": "autos.feature",
+    "pk": 4,
+    "fields": {
+        "name": "Power seats"
+    }
+},
+{
+    "model": "autos.feature",
+    "pk": 5,
+    "fields": {
+        "name": "Automatic climate control"
+    }
+},
+{
+    "model": "autos.auto",
+    "pk": 1,
+    "fields": {
+        "name": "2020 Chevrolet Camaro NX",
+        "price": 35999.0,
+        "make": 4,
+        "model": 6,
+        "trim": 1,
+        "category": 1,
+        "year": 2020,
+        "milage": 1200,
+        "stock": 5,
+        "description": "Great car overall number one of its kind in the world",
+        "color": "Black",
+        "intcolor": "Black",
+        "condition": "Used",
+        "doors": "2",
+        "fueltype": "Gasoline",
+        "transmission": "Manual",
+        "engine": "V8",
+        "location": "343 El Camino Real Cuppertino, CA",
+        "owners": "1",
+        "image": "main_view.png",
+        "image2": "front_angle_view.jpeg",
+        "image3": "int_view.jpg",
+        "image4": "rear_view.jpg",
+        "image5": "side_view.jpg",
+        "image6": "font_angle_view2.png",
+        "created_at": "2021-12-10T01:46:10.437Z",
+        "features": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "autos.auto",
+    "pk": 2,
+    "fields": {
+        "name": "2020 Ferarri F8",
+        "price": 12499.98,
+        "make": 5,
+        "model": 9,
+        "trim": 1,
+        "category": 1,
+        "year": 2020,
+        "milage": 2400,
+        "stock": 1,
+        "description": "Great car overall number one of its kind in the world",
+        "color": "Red",
+        "intcolor": "Black",
+        "condition": "Used",
+        "doors": "2",
+        "fueltype": "Gasoline",
+        "transmission": "Manual",
+        "engine": "V8",
+        "location": "343 El Camino Real Cuppertino, CA",
+        "owners": "1",
+        "image": "main_view.jpg",
+        "image2": "front_view.jpg",
+        "image3": "int_view.jpg",
+        "image4": "main_view.jpg",
+        "image5": "rear_view.jpeg",
+        "image6": "side_view.jpg",
+        "created_at": "2021-12-10T01:53:09.215Z",
+        "features": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "autos.auto",
+    "pk": 3,
+    "fields": {
+        "name": "2018 Audi R8",
+        "price": 89999.0,
+        "make": 2,
+        "model": 3,
+        "trim": 1,
+        "category": 1,
+        "year": 2019,
+        "milage": 2400,
+        "stock": 2,
+        "description": "Great sports car for the money",
+        "color": "Silver",
+        "intcolor": "Black",
+        "condition": "New",
+        "doors": "2",
+        "fueltype": "Gasoline",
+        "transmission": "Manual",
+        "engine": "V8",
+        "location": "450 El Camino Real Dr, Burlingame CA",
+        "owners": "1",
+        "image": "main_view.jpeg",
+        "image2": "front_view.jpg",
+        "image3": "int_view.jpg",
+        "image4": "rear_view.jpg",
+        "image5": "rear_view2.jpeg",
+        "image6": "side_view.jpg",
+        "created_at": "2021-12-10T01:55:09.450Z",
+        "features": [
+            1,
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "autos.featured",
+    "pk": 1,
+    "fields": {
+        "auto": 1
+    }
+},
+{
+    "model": "autos.featured",
+    "pk": 2,
+    "fields": {
+        "auto": 2
+    }
+},
+{
+    "model": "autos.featured",
+    "pk": 3,
+    "fields": {
+        "auto": 3
+    }
+},
+{
+    "model": "autos.staff",
+    "pk": 1,
+    "fields": {
+        "firstname": "Jack",
+        "lastname": "Snow",
+        "dept": "Sales Admin",
+        "image": "avatar-3.jpg"
+    }
+},
+{
+    "model": "autos.staff",
+    "pk": 2,
+    "fields": {
+        "firstname": "Janice",
+        "lastname": "Wright",
+        "dept": "Sales",
+        "image": "avatar-2.jpg"
+    }
+},
+{
+    "model": "autos.request",
+    "pk": 1,
+    "fields": {
+        "user": [
+            "testuser1"
+        ],
+        "auto": 3,
+        "created_at": "2021-12-13T17:26:11.362Z"
+    }
+},
+{
+    "model": "autos.request",
+    "pk": 2,
+    "fields": {
+        "user": [
+            "testuser2"
+        ],
+        "auto": 1,
+        "created_at": "2021-12-13T18:37:42.624Z"
+    }
+},
+{
+    "model": "autos.request",
+    "pk": 3,
+    "fields": {
+        "user": [
+            "testuser3"
+        ],
+        "auto": 2,
+        "created_at": "2021-12-13T18:48:40.408Z"
+    }
+},
+{
+    "model": "autos.request",
+    "pk": 4,
+    "fields": {
+        "user": [
+            "testuser3"
+        ],
+        "auto": 3,
+        "created_at": "2021-12-13T18:54:44.600Z"
+    }
+},
+{
+    "model": "autos.request",
+    "pk": 5,
+    "fields": {
+        "user": [
+            "testuser3"
+        ],
+        "auto": 1,
+        "created_at": "2021-12-13T19:09:36.161Z"
+    }
+},
+{
+    "model": "autos.request",
+    "pk": 6,
+    "fields": {
+        "user": [
+            "testuser1"
+        ],
+        "auto": 2,
+        "created_at": "2021-12-13T19:13:15.468Z"
+    }
+},
+{
+    "model": "autos.request",
+    "pk": 7,
+    "fields": {
+        "user": [
+            "testuser2"
+        ],
+        "auto": 2,
+        "created_at": "2021-12-13T22:39:32.295Z"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2021-12-10T01:35:09.155Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "category"
+        ],
+        "object_id": "1",
+        "object_repr": "Coups",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2021-12-10T01:35:18.273Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "category"
+        ],
+        "object_id": "2",
+        "object_repr": "Convertable",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2021-12-10T01:35:24.709Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "category"
+        ],
+        "object_id": "3",
+        "object_repr": "Sedans",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2021-12-10T01:35:39.424Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "category"
+        ],
+        "object_id": "4",
+        "object_repr": "SUV",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2021-12-10T01:35:45.705Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "category"
+        ],
+        "object_id": "5",
+        "object_repr": "Trucks",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2021-12-10T01:36:15.148Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "make"
+        ],
+        "object_id": "1",
+        "object_repr": "Accura",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2021-12-10T01:36:20.839Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "make"
+        ],
+        "object_id": "2",
+        "object_repr": "Audi",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2021-12-10T01:36:27.348Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "make"
+        ],
+        "object_id": "3",
+        "object_repr": "BMW",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2021-12-10T01:36:35.175Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "make"
+        ],
+        "object_id": "4",
+        "object_repr": "Chevrolet",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2021-12-10T01:36:47.773Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "make"
+        ],
+        "object_id": "5",
+        "object_repr": "Ferarri",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2021-12-10T01:37:01.333Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "make"
+        ],
+        "object_id": "6",
+        "object_repr": "Nissan",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2021-12-10T01:37:16.036Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "make"
+        ],
+        "object_id": "7",
+        "object_repr": "Porsche",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2021-12-10T01:38:00.201Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "1",
+        "object_repr": "Integra",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2021-12-10T01:38:12.766Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "2",
+        "object_repr": "A4",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2021-12-10T01:38:23.186Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "3",
+        "object_repr": "R8",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2021-12-10T01:38:35.471Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "4",
+        "object_repr": "320i",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2021-12-10T01:38:46.027Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "5",
+        "object_repr": "Corvette",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2021-12-10T01:39:03.679Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "6",
+        "object_repr": "Camaro",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2021-12-10T01:39:21.046Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "7",
+        "object_repr": "F150",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2021-12-10T01:39:33.878Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "8",
+        "object_repr": "Malibu",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2021-12-10T01:39:43.981Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "9",
+        "object_repr": "F8",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2021-12-10T01:39:54.613Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "10",
+        "object_repr": "Altima",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2021-12-10T01:40:05.384Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "11",
+        "object_repr": "911",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2021-12-10T01:40:14.230Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "model"
+        ],
+        "object_id": "12",
+        "object_repr": "944",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2021-12-10T01:41:47.390Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "staff"
+        ],
+        "object_id": "1",
+        "object_repr": "Jack",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2021-12-10T01:42:13.699Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "feature"
+        ],
+        "object_id": "1",
+        "object_repr": "Air conditioning",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2021-12-10T01:42:25.489Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "feature"
+        ],
+        "object_id": "2",
+        "object_repr": "Power windows",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2021-12-10T01:42:32.016Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "feature"
+        ],
+        "object_id": "3",
+        "object_repr": "Navigation display",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2021-12-10T01:42:42.667Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "feature"
+        ],
+        "object_id": "4",
+        "object_repr": "Power seats",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2021-12-10T01:42:52.433Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "feature"
+        ],
+        "object_id": "5",
+        "object_repr": "Automatic climate control",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2021-12-10T01:43:17.318Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "trim"
+        ],
+        "object_id": "1",
+        "object_repr": "GL",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2021-12-10T01:46:10.595Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "1",
+        "object_repr": "2020 Chevrolet Camaro NX",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2021-12-10T01:47:24.675Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "featured"
+        ],
+        "object_id": "1",
+        "object_repr": "Featured object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2021-12-10T01:53:09.224Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "2",
+        "object_repr": "2019 Ferarri F8",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2021-12-10T01:55:09.457Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "3",
+        "object_repr": "2018 Audi R8",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2021-12-10T01:56:29.870Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "staff"
+        ],
+        "object_id": "2",
+        "object_repr": "Janice",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2021-12-10T01:57:07.848Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "featured"
+        ],
+        "object_id": "2",
+        "object_repr": "Featured object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2021-12-10T01:57:15.545Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "featured"
+        ],
+        "object_id": "3",
+        "object_repr": "Featured object (3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2021-12-10T02:13:04.960Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "1",
+        "object_repr": "2020 Chevrolet Camaro NX",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2021-12-10T02:15:55.424Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "2",
+        "object_repr": "2019 Ferarri F8",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2021-12-13T17:26:22.261Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "request"
+        ],
+        "object_id": "1",
+        "object_repr": "Request object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2021-12-13T20:16:56.524Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "1",
+        "object_repr": "2020 Chevrolet Camaro NX",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2021-12-13T20:36:17.782Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "3",
+        "object_repr": "2018 Audi R8",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image2\", \"Image3\", \"Image4\", \"Image5\", \"Image6\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2021-12-13T20:52:27.211Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "2",
+        "object_repr": "2019 Ferarri F8",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image2\", \"Image3\", \"Image4\", \"Image5\", \"Image6\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2021-12-13T20:53:59.646Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "1",
+        "object_repr": "2020 Chevrolet Camaro NX",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image6\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2021-12-13T20:55:38.428Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "1",
+        "object_repr": "2020 Chevrolet Camaro NX",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Image2\", \"Image3\", \"Image4\", \"Image5\", \"Image6\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2021-12-13T20:59:03.865Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "1",
+        "object_repr": "2020 Chevrolet Camaro NX",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2021-12-13T21:07:07.309Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "1",
+        "object_repr": "2020 Chevrolet Camaro NX",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2021-12-13T21:07:38.823Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "3",
+        "object_repr": "2018 Audi R8",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2021-12-13T21:08:02.972Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "2",
+        "object_repr": "2019 Ferarri F8",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2021-12-13T21:39:17.781Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "2",
+        "object_repr": "2020 Ferarri F8",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2021-12-13T21:57:24.589Z",
+        "user": [
+            "superuser1"
+        ],
+        "content_type": [
+            "autos",
+            "auto"
+        ],
+        "object_id": "2",
+        "object_repr": "2020 Ferarri F8",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Year\"]}}]"
+    }
+}
+]

@@ -1,0 +1,90 @@
+{% load static %}
+<header class="main-header sticky-header header-with-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand company-logo" href="/">
+                <img src="/static/images/logos/black-logo.png"  alt="logo"/>
+            </a>
+            <li class="nav-item dropdown mobile-search">
+                <a href="#full-page-search" class="nav-link h-icon">
+                    <i class="fa fa-search" class="nav-srch"></i>
+                </a>
+            </li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+            <button  class="mobile-user-dropdown" data-toggle="modal" data-target="#userNavModal" style="margin-left:5px;border-radius:50px;border:none;">
+            <span class="fa fa-user"></span> </button>
+             {% if request.user.is_authenticated %}
+                <span class="reqitms">{{requests.count}}</span>
+                {% endif %}
+             
+            <div class="navbar-collapse collapse w-100" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a {% if '/' == request.path %} class="nav-link  active" {% else %} class="nav-link " {% endif %} href="/" >
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a {% if '/autos' == request.path %} class="nav-link  active" {% else %} class="nav-link " {% endif %} href="/autos">
+                            Cars
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a {% if '/about' == request.path %} class="nav-link  active" {% else %} class="nav-link " {% endif %} href="/about">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services">
+                            Services
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="/contacts">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown m-hide">
+                        <a href="#full-page-search" class="nav-link h-icon">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="modal fade" id="userNavModal" role="dialog"style="top:50px">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                <ul class="navbar-nav mr-auto">
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a {% if '/account/profile' == request.path %} class="nav-link  active" {% else %} class="nav-link " {% endif %} href="/account/profile" >
+                            <i class="fa fa-user"></i> Profile
+                        
+                    </li>
+                    <li class="nav-item">
+                   
+                    <a href="/account/signout" class="nav-link "> <i class="fa fa-sign-out"></i> Sign out</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a {% if '/account/signin' == request.path %} class="nav-link  active" {% else %} class="nav-link " {% endif %} href="/account/signin" >
+                            <i class="fa fa-sign-in"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a {% if '/account/signup' == request.path %} class="nav-link  active" {% else %} class="nav-link " {% endif %} href="/account/signup" >
+                            <i class="fa fa-user"></i> Register
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

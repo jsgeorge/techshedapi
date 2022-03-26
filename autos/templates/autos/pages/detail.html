@@ -1,0 +1,249 @@
+{% extends "base2.html" %} 
+{% load static %}
+{% block content %}
+<div class="sub-banner overview-bgi">
+  <div class="container breadcrumb-area">
+      <div class="breadcrumb-areas">
+          <h1>{{car.name}}</h1>
+          <ul class="breadcrumbs">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/autos">Cars</a></li>
+            <li class="active"><a href="/autos">{{car.category.name}}</a></li>
+              <li class="active">Detail</li>
+          </ul>
+      </div>
+  </div>
+</div>
+<!-- Sub Banner end -->
+<div class="featured-car content-area">
+ <div class="container">
+  {% for message in messages %}
+  <div class="alert alert-success">{{message}}</div>
+ {% endfor %}
+     <div class="row">
+         <div class="col-md-8">
+        <h3>{{car.name}} <span class="pull-right">${{car.price}}</span></h3>
+        {% if car.image %}
+          <!-- <img class="detail-img" src="/static/images/car/{{ car.image}}" alt=""> -->
+          <div id="carDetailsSlider" class="carousel car-details-sliders slide mb-40">
+            <!-- main slider carousel items -->
+            <div class="carousel-inner">
+              {% if car.image %}
+                <div class="active item carousel-item" data-slide-number="0">
+                    <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image}}" class="img-fluid" alt="slider-car">
+                </div>
+              {% endif %}
+              {% if car.image2 %}
+                <div class="item carousel-item" data-slide-number="1">
+                    <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image2}}" class="img-fluid" alt="slider-car">
+                </div>
+              {% endif %}
+              {% if car.image3 %}
+                <div class="item carousel-item" data-slide-number="2">
+                    <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image3}}" class="img-fluid" alt="slider-car">
+                </div>
+                {% endif %}
+                {% if car.image4 %}
+                <div class="item carousel-item" data-slide-number="4">
+                    <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image4}}" class="img-fluid" alt="slider-car">
+                </div>
+                {% endif %}
+                {% if car.image5 %}
+                <div class="item carousel-item" data-slide-number="5">
+                    <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image5}}" class="img-fluid" alt="slider-car">
+                </div>
+                {% endif %}
+            </div>
+            <!-- main slider carousel nav controls -->
+            <div class="carousel-indicators-section clearfix">
+                <ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                  {% if car.image %}
+                    <li class="list-inline-item active">
+                        <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#carDetailsSlider">
+                            <img src="/static/images/car/{{car.name}} {{car.color}}/{{ car.image}}" class="img-fluid" alt="small-car">
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if car.image2 %}
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-1" data-slide-to="1" data-target="#carDetailsSlider">
+                            <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image2}}" class="img-fluid" alt="small-car">
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if car.image3 %}
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-2" data-slide-to="2" data-target="#carDetailsSlider">
+                            <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image3}}" class="img-fluid" alt="small-car">
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if car.image4 %}
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-3" data-slide-to="3" data-target="#carDetailsSlider">
+                            <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image4}}" class="img-fluid" alt="small-car">
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if car.image5 %}
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-4" data-slide-to="4" data-target="#carDetailsSlider">
+                            <img src="/static/images/car/{{car.name}} {{car.color}}/{{car.image5}}" class="img-fluid" alt="small-car">
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        
+        {% else %}
+        <img class="card-img-top" src="{% static 'images/favicon.ico' %}" alt="">
+        {% endif %}
+        <div>
+            <h3>Description</h3>
+            <p>{{car.description}}</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div>
+      {% if request.user.is_authenticated %}
+       {% if requests.count > 0 %}
+            <span class="btn btn-danger bomd btn-block btn-lg">Car already inquired</span>
+        {% else %}
+            <button class="btn btn-outline-danger bomd btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Send message</button>
+        {% endif %}
+ <!-- Inquiry Modal -->
+ <div class="modal fade" id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="contact-dealer modal-header">
+          <!-- <h5 class="modal-title" id="inquiryModalLabel">Contact Dealer</h5> -->
+          <img src="{% static 'images/logos/logo-black-white.png' %}">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'saveautoinq' %}" method="POST">
+            {% csrf_token %} 
+            <div class="form-group">
+                <label for="name" class="col-form-label">Hello, My Name is</label>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                  </div>
+                  <div class="col">
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                  </div>
+                </div>
+              </div>
+                <div class="form-group">
+                    <select class="form-control" id="sel1" name="customer_need">
+                      <option value="I'm interested in this">I'm interested in this</option>
+                      <option value="I'd like to know your best price for this">I'd like to know your best price for this</option>
+                      <option value="I'd like to test drive this">I'd like to test drive this</option>
+                      <option value="I'd like a history report for this">I'd like a history report for this</option>
+                    </select>
+                  </div>
+              
+              <div class="form-group">
+                <input type="hidden" name="car_id" value="{{car.id}}"/>
+                <input type="text" name="car_title" class="form-control" value="{{car.name}}" readonly>
+              </div>
+             
+              <div class="form-group">
+                <label for="name" class="col-form-label">I live in</label>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" name="city" class="form-control" placeholder="City" required>
+                  </div>
+                  <div class="col">
+                    <input type="text" name="state" class="form-control" placeholder="State" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                      <label for="name" class="col-form-label">You can reach me by email at</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                  </div>
+                  <div class="col">
+                      <label for="phone" class="col-form-label">or by phone at</label>
+                    <input type="text" name="phone" placeholder="Phone Number (optional)" class="form-control">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="col-form-label">Add comments</label>
+                <textarea name="message" class="form-control" placeholder="Enter your message here (optional)"></textarea>
+              </div>
+              <hr>
+              <input type="submit" value="Send" class="btn btn-block btn-danger">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Question start -->
+  <div class="widget question">
+      <h5 class="sidebar-title">Get a Question?</h5>
+      <ul class="contact-info">
+          <li>
+              <i class="flaticon-pin"></i>{{car.location}}
+          </li>
+          <li>
+              <i class="flaticon-mail"></i><a href="mailto:info@themevessel.com">info@themevessel.com</a>
+          </li>
+          <li>
+              <i class="flaticon-phone"></i><a href="tel:+0477-85x6-552">+0477 85x6 552</a>
+          </li>
+      </ul>
+      <div class="social-list clearfix">
+          <ul>
+              <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
+              <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+      </div>
+  </div>
+  
+        </div>
+        {% else %}
+        <a href="/auth/signin" class="btn btn-outline-danger bomd btn-block btn-lg">Login to Inquire</a>
+        {% endif %}
+        <h3>Features</h3>
+          <table>
+              <tr><td>Color</td><td>{{car.color}}</td></tr>
+              <tr><td>Model</td><td>{{car.model}}</td></tr>
+              <tr><td>Year</td><td>{{car.year}}</td></tr>
+              <tr><td>Condition</td><td>{{car.condition}}</td></tr>
+              <tr><td>Body Style</td><td>{{car.category.name}}</td></tr>
+              <tr><td>Engine</td><td>{{car.engine}}</td></tr>
+              <tr><td>Transmission</td><td>{{car.transmission}}</td></tr>
+              <tr><td>Interior</td><td>{{car.intcolor}}</td></tr>
+              <tr><td>Color</td><td>{{car.color}}</td></tr>
+              <tr><td>Miliage</td><td>{{car.milage}}</td></tr>
+              <tr><td>Doors</td><td>{{car.doors}}</td></tr>
+              <tr><td>Fueltype</td><td>{{car.fueltype}}</td></tr>
+              <tr><td>Owners</td><td>{{car.owners}}</td></tr>
+          </table>
+         
+          <h3>Optional Features</h3>
+          {% for f in car.features.all %}
+           <p>{{f.name}}</p>
+           {% endfor %}
+        
+         
+    
+
+</div>
+        </div>
+      </div>
+ </div>
+{% endblock %}

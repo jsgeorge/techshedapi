@@ -1,0 +1,76 @@
+{% load static %}
+<div class="car-box">
+    <div class="car-thumbnail">
+        <a href="/autos/{{car.id}}" class="car-img">
+            <div class="tag">For Sale</div>
+            {% if car.image %}
+            <img class="d-block w-100" src="/static/images/car/{{car.name}} {{car.color}}/{{car.image}}" alt="car">
+            {% endif %}
+            <div class="facilities-list clearfix">
+                <ul>
+                    <li>
+                        <span><i class="flaticon-way"></i></span>{{ car.milage }} km
+                    </li>
+                    <li>
+                        <span><i class="flaticon-calendar-1"></i></span>{{car.year}}
+                    </li>
+                    <li>
+                        <span><i class="flaticon-manual-transmission"></i></span>{{car.transmission}}
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <div class="carbox-overlap-wrapper">
+            <div class="overlap-box">
+                <div class="overlap-btns-area">
+                    <div class="car-magnify-gallery">
+                        {% if car.image %}
+                        <a href="/static/images/car/{{car.name}} {{car.color}}/{{car.image}}" class="overlap-btn">
+                            <i class="fa fa-expand"></i>
+                            <img class="hidden" source="/static//images/car/{{car.name}} {{car.color}}/{{car.image}}">
+                        </a>
+                        {% endif %}
+                        {% if car.image2 %}
+                        <a href="/static/images/car/{{car.name}} {{car.color}}/{{car.image2}}" class="hidden">
+                            <img class="hidden" source="/static//images/car/{{car.name}} {{car.color}}/{{car.image2}}">
+                        </a>
+                        {% endif %}
+                        {% if car.image3 %}
+                        <a href="/static/images/car/{{car.name}} {{car.color}}/{{car.image3}}" class="hidden">
+                            <img class="hidden" source="/static//images/car/{{car.name}} {{car.color}}/{{car.image3}}">
+                        </a>
+                        {% endif %}
+                        {% if car.image4 %}
+                        <a href="/static/images/car/{{car.name}} {{car.color}}/{{car.image4}}" class="hidden">
+                            <img class="hidden" source="/static//images/car/{{car.name}} {{car.color}}/{{car.image4}}">
+                        </a>
+                        {% endif %}
+                        {% if car.image5 %}
+                        <a href="/static/images/car/{{car.name}} {{car.color}}/{{car.image5}}" class="hidden">
+                            <img class="hidden" source="/static//images/car/{{car.name}} {{car.color}}/{{car.image5}}">
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail">
+        <h1 class="title">
+            <a href="/autos/{{car.id}}">{{car.name}}</a>
+        </h1>
+        <div class="location">
+            <a href="car-details.html">
+                <i class="flaticon-pin"></i>{{car.location}}
+            </a>
+        </div>
+    </div>
+    <div class="footer clearfix">
+        <div class="pull-left ratings days">
+            <p class="cartype">{{car.category.name}}</p>
+        </div>
+        <div class="pull-right">
+            <p class="price">${{car.price}}</p>
+        </div>
+    </div>
+</div>

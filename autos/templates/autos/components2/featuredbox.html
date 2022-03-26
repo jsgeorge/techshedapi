@@ -1,0 +1,66 @@
+{% load static %}
+<div class="car-box-3">
+    <div class="car-thumbnail">
+        <a href="autos/{{car.auto.id}}" class="car-img">
+            <div class="tag-2">Featured</div>
+            <div class="price-box">
+                <!-- <span class="del"><del>{{car.auto.price}}</del></span>
+                <br> -->
+                <span>${{car.auto.price}}</span>
+            </div>
+            <img class="d-block w-100" src="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image}}" alt="car">
+        </a>
+        <div class="carbox-overlap-wrapper">
+            <div class="overlap-box">
+                <div class="overlap-btns-area">
+                    <div class="car-magnify-gallery">
+                        {% if car.auto.image %}
+                        <a href="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image}}" class="overlap-btn">
+                            <i class="fa fa-expand"></i>
+                            <img class="hidden" src="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image}}">
+                        </a>
+                        {% endif %}
+                        {% if car.auto.image2 %}
+                        <a href="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image2}}" class="hidden">
+                            <img class="hidden" src="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image2}}">
+                        </a>
+                        {% endif %}
+                        {% if car.auto.image3 %}
+                        <a href="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image3}}" class="hidden">
+                            <img class="hidden" src="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image3}}">
+                        </a>
+                        {% endif %}
+                        {% if car.auto.image4 %}
+                        <a href="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image4}}" class="hidden">
+                            <img class="hidden" src="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image4}}">
+                        </a>
+                        {% endif %}
+                        {% if car.auto.image5 %}
+                        <a href="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image5}}" class="hidden">
+                            <img class="hidden" src="static/images/car/{{car.auto.name}} {{car.auto.color}}/{{car.auto.image5}}">
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail">
+        <h1 class="title">
+            <a href="autos/{{car.auto.id}}">{{car.auto.name}}</a>
+        </h1>
+        <div class="location">
+            <a href="car-details.html">
+                <i class="flaticon-pin"></i>{{car.auto.location}}
+            </a>
+        </div>
+        <ul class="facilities-list clearfix">
+            <li>{{car.auto.fueltype}}</li>
+            <li>{{car.auto.milage}}mi</li>
+            <li>{{car.auto.transmission}}</li>
+            <li>{{car.auto.category.name}}</li>
+            <li>{{car.auto.intcolor}}</li>
+            <li>{{car.auto.year}}</li>
+        </ul>
+    </div>
+</div>
