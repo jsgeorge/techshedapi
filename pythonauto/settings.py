@@ -183,7 +183,7 @@ EMAIL_HOST_USER = "gmeyer49s@gmail.com"
 EMAIL_HOST_PASSWORD = "kgnvfepslumcpxex"
 
 #Whitnoise settings
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_ORIGIN_ALLOW_ALL = True  # any website has asccess to API
 #CORS_URLS_REGEX = r'^/api/.*$'
