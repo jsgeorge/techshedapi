@@ -49,8 +49,6 @@ router.register('api/orders', OrderViewSetREST)
 router.register('api/favorites', FavoriteViewSetREST)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('autos.urls')),
-    # path('account/', include('account.urls'))
     path('', include(router.urls)),
     path('api/auth/', obtain_auth_token),
 ]
