@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'kym$)#e$_hvl7j!23z1p%l%=05*62yx6-+6kun^m9e3qmfkeqv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'carzoneapi.herokuapp.com']
 
