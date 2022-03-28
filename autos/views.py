@@ -405,6 +405,17 @@ class AutoViewSetREST(viewsets.ModelViewSet):
             response = {'message': "Error you need to provide like"}
             return Response(response, status=status.HTTP_400_BAD_REQUEST)
 
+
+class AutoMakeViewSetREST(viewsets.ModelViewSet):
+    serializer_class = AutoSerializer
+    queryset = Auto.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['make']
+
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (AllowAny,)
+
+
 class AutoCategoryViewSetREST(viewsets.ModelViewSet):
     serializer_class = AutoSerializer
     queryset = Auto.objects.all()
@@ -487,6 +498,14 @@ class CategoryViewSetREST(viewsets.ModelViewSet):
     #serializer_class = MovieMiniSerializer
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (AllowAny,)
+
+class MakeViewSetREST(viewsets.ModelViewSet):
+    
+    #serializer_class = MovieMiniSerializer
+    serializer_class = MakeSerializer
+    queryset = Make.objects.all()
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny,)
 
