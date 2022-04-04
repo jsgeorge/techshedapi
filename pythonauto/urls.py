@@ -29,6 +29,8 @@ from autos.views import(
     LatestAutoViewSetREST,
     CategoryViewSetREST,
     MakeViewSetREST,
+    ModelViewSetREST,
+    TrimViewSetREST,
     UserViewSetREST,
     OrderViewSetREST,
     FavoriteViewSetREST,
@@ -42,6 +44,8 @@ router.register('api/featured', FeaturdAutoViewSetREST)
 router.register("api/latest", LatestAutoViewSetREST)
 router.register('api/categories', CategoryViewSetREST)
 router.register('api/makes', MakeViewSetREST)
+router.register('api/models', ModelViewSetREST)
+router.register('api/trims', TrimViewSetREST)
 router.register('api/filter', AutoCategoryViewSetREST)
 router.register('api/filterbymake', AutoMakeViewSetREST)
 router.register('api/orders', OrderViewSetREST)

@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from curses import def_prog_mode
+#from curses import def_prog_mode
 from pathlib import Path
 import os
 #import environ
@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'kym$)#e$_hvl7j!23z1p%l%=05*62yx6-+6kun^m9e3qmfkeqv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'carzoneapi.herokuapp.com']
 

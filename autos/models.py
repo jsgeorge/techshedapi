@@ -63,6 +63,9 @@ class Auto(models.Model):
     TRANSMISSIONS = (('Manual', 'Manual'), ('Automatic', 'Automatic'))
     ENGINETYPES = (('V6', 'V6'), ('V8', 'V8'), ("I6", "I6"), ("ELECTRIC",
                                                               "ELECTRIC"))
+    vin = models.CharField(max_length=100, null=True,blank=True)
+    plate = models.CharField(max_length=100, null=True,blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=250)
     price = models.FloatField()
     make = models.ForeignKey(Make, null=True, on_delete=models.SET_NULL)

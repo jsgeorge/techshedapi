@@ -47,6 +47,47 @@ class AutoViewSetREST(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny,)
 
+    
+    @action(detail=False, methods=['POST'])
+    def create_new(self, request, pk=None):
+         print(request)
+         name = request.data['name']
+         year = request.data['year']
+         make = Make.objects.get(id=request.data['make'])
+         model = Model.objects.get(id=request.data['model'])
+         trim = Trim.objects.get(id=request.data['trim'])
+         category = Category.objects.get(id=request.data['category'])
+         location = request.data['location']
+         price = request.data['price']
+         stock = request.data['stock']
+         image = request.data['image']
+         auto = Auto.objects.create(
+             name=name,
+             year=year,
+             make=make,
+             model=model,
+             trim=trim,
+             category=category,
+             location=location,
+             price=price,
+             stock=stock,
+             image=image
+         )
+         serializer=AutoSerializer(auto, many=False)
+         response = {
+                    'message': "Auto created",
+                    'result': serializer.data}
+         return Response(response, status=status.HTTP_200_OK)
+   
+    @action(detail=False, methods=['GET'])
+    def view_sold(self, request):
+                print('user',request.user)
+                sold_items = Auto.objects.filter(user=request.user)
+                serializer = AutoSerializer(sold_items, many=True)
+                response =  serializer.data
+                print(response)
+                return Response(response, status=status.HTTP_200_OK)
+     
     @action(detail=True, methods=['POST'])
     def order_auto(self, request, pk=None):
         if 'qty' in request.data:
@@ -146,15 +187,15 @@ class AutoViewSetREST(viewsets.ModelViewSet):
         if 'like' in request.data:
             auto = Auto.objects.get(id=pk)
             user = request.user
+            subject = request.data['subject']
+            email = request.data['email']
+            message = request.data['message']
             like = request.data['like']
-            print('auto ', auto)
-            print('user ', user)
-            print('like', like)
             if (like) :
                 #send email
-                customerneed= auto.name
-                message = "Auto inquiry"
-                email = user.email
+                customerneed=  subject + ' ' + auto.name
+                message = message
+                email = email
                 send_mail(
                     customerneed,
                     message,
@@ -289,6 +330,25 @@ class MakeViewSetREST(viewsets.ModelViewSet):
     queryset = Make.objects.all()
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny,)
+
+
+class ModelViewSetREST(viewsets.ModelViewSet):
+    
+    #serializer_class = MovieMiniSerializer
+    serializer_class = ModelSerializer
+    queryset = Model.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (AllowAny,)
+
+
+class TrimViewSetREST(viewsets.ModelViewSet):
+    
+    #serializer_class = MovieMiniSerializer
+    serializer_class = TrimSerializer
+    queryset =Trim.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (AllowAny,)
+
 
 class OrderViewSetREST(viewsets.ModelViewSet):
     queryset = Order.objects.all()

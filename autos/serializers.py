@@ -56,7 +56,7 @@ class AutoSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Auto
-        fields = ['id', 'name', 'category', 'make', 'model', 
+        fields = ['id', 'user', 'name', 'category', 'make', 'model', 'vin', 'plate',
                   'trim', 'year',  'price','milage', 'stock', 
                   'color', 'intcolor', 'image', 'image2', 'image3', 
                   'location', 'owners',  'description', 'featured', 
