@@ -31,7 +31,7 @@ SECRET_KEY = 'kym$)#e$_hvl7j!23z1p%l%=05*62yx6-+6kun^m9e3qmfkeqv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'techshedapi.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'techshedapig.herokuapp.com']
 
 LOGIN_REDIRECT_URL = '/account/profile'
 
