@@ -26,6 +26,7 @@ from autos.views import(
     AutoCategoryViewSetREST,
     AutoMakeViewSetREST,
     FeaturdAutoViewSetREST,
+    OnSaleAutoViewSetREST,
     LatestAutoViewSetREST,
     CategoryViewSetREST,
     MakeViewSetREST,
@@ -34,6 +35,7 @@ from autos.views import(
     UserViewSetREST,
     OrderViewSetREST,
     FavoriteViewSetREST,
+
     
 )
 router = routers.DefaultRouter()
@@ -42,6 +44,7 @@ router.register('api/autos', AutoViewSetREST),
 router.register('api/autos/<int id>', AutoViewSetREST)
 router.register('api/featured', FeaturdAutoViewSetREST)
 router.register("api/latest", LatestAutoViewSetREST)
+router.register("api/onsale", OnSaleAutoViewSetREST)
 router.register('api/categories', CategoryViewSetREST)
 router.register('api/makes', MakeViewSetREST)
 router.register('api/models', ModelViewSetREST)

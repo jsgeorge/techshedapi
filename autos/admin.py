@@ -7,13 +7,12 @@ from django.utils.html import format_html
 class AutoAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'year',
         'model',
         'trim',
         'category',
         'stock',
-        'user',
         'location',
+        'featured',
     )
 
 

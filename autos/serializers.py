@@ -56,12 +56,12 @@ class AutoSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Auto
-        fields = ['id', 'user', 'name', 'category', 'make', 'model', 'vin', 'plate',
-                  'trim', 'year',  'price','milage', 'stock', 
-                  'color', 'intcolor', 'image', 'image2', 'image3', 
-                  'location', 'owners',  'description', 'featured', 
+        fields = ['id',  'name', 'category', 'make', 'model',
+                  'trim',   'price', 'discountpct', 'stock', 
+                  'color',  'image', 'image2', 'image3', 
+                  'location', 'description', 'featured', 
                   'created_at', 'rating_cnt', 'ave_rating',
-                  'review_cnt']
+                  'review_cnt', 'discount_price']
     
     def get_votes(self, obj):
         return obj.votes.count()

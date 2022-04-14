@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'kym$)#e$_hvl7j!23z1p%l%=05*62yx6-+6kun^m9e3qmfkeqv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'carzoneapi.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'techshedapi.herokuapp.com']
 
 LOGIN_REDIRECT_URL = '/account/profile'
 
@@ -115,6 +115,8 @@ DATABASES = {
 # }
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': {

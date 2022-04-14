@@ -55,60 +55,23 @@ class Feature(models.Model):
 class Auto(models.Model):
     COLORS = (('White', 'White'), ('Red', 'Red'), ('Blue', 'Blue'),
               ('Silver', 'Silver'), ('Green', 'Green'), ('Black', 'Black'))
-    CONDITIONS = (('New', 'New'), ('Used', 'Used'), ('Refurbished',
-                                                     'Refurbished'))
-    DOORS = (('2', '2'), ('3', '3'), ('4', '4'))
-    FUELTYPES = (('Gasoline', 'Gasoline'), ('Electric', 'Electric'),
-                 ('Hybrid', 'Hybrid'))
-    TRANSMISSIONS = (('Manual', 'Manual'), ('Automatic', 'Automatic'))
-    ENGINETYPES = (('V6', 'V6'), ('V8', 'V8'), ("I6", "I6"), ("ELECTRIC",
-                                                              "ELECTRIC"))
-    vin = models.CharField(max_length=100, null=True,blank=True)
-    plate = models.CharField(max_length=100, null=True,blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=250)
     price = models.FloatField()
+    discountpct = models.FloatField(default=0.00)
     make = models.ForeignKey(Make, null=True, on_delete=models.SET_NULL)
     model = models.ForeignKey(Model, null=True, on_delete=models.SET_NULL)
     trim = models.ForeignKey(Trim, null=True, on_delete=models.SET_NULL)
     category = models.ForeignKey(Category,
                                  null=True,
                                  on_delete=models.SET_NULL)
-    year = models.IntegerField()
-    milage = models.IntegerField(null=True, blank=True)
     stock = models.IntegerField()
     description = models.CharField(max_length=1000, null=True, blank=True)
     color = models.CharField(max_length=200,
                              choices=COLORS,
                              null=True,
                              blank=True)
-    intcolor = models.CharField(max_length=200,
-                                choices=COLORS,
-                                null=True,
-                                blank=True)
-    condition = models.CharField(max_length=200,
-                                 choices=CONDITIONS,
-                                 null=True,
-                                 blank=True)
-    doors = models.CharField(max_length=200,
-                             choices=DOORS,
-                             null=True,
-                             blank=True)
-    fueltype = models.CharField(max_length=200,
-                                choices=FUELTYPES,
-                                null=True,
-                                blank=True)
-    transmission = models.CharField(max_length=200,
-                                    choices=TRANSMISSIONS,
-                                    null=True,
-                                    blank=True)
-    engine = models.CharField(max_length=200,
-                              choices=ENGINETYPES,
-                              null=True,
-                              blank=True)
     features = models.ManyToManyField(Feature)
     location = models.CharField(max_length=200, blank=True, null=True)
-    owners = models.CharField(max_length=10, default="1")
     # image_url = models.CharField(max_length=2083)
     image = models.ImageField(null=True, blank=True)
     image2 = models.ImageField(null=True, blank=True)
@@ -130,6 +93,10 @@ class Auto(models.Model):
             url = ''
         return url
 
+    def discount_price(self):
+        discount= self.price - (self.price * self.discountpct)
+        return(discount)
+        
     def rating_cnt(self):
         ratings = AutoRating.objects.filter(auto=self)
         return len(ratings)
@@ -213,6 +180,7 @@ class Order(models.Model):
     class Meta:
         unique_together = (('user', 'auto'),)
         index_together = (('user', 'auto'),)
+
 
     def __str__(self):
         return self.auto

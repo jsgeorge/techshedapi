@@ -315,6 +315,15 @@ class BestSellersAutoViewSetREST(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny,)
 
+class OnSaleAutoViewSetREST(viewsets.ModelViewSet):
+    
+    #serializer_class = MovieMiniSerializer
+    serializer_class = AutoSerializer
+    queryset = Auto.objects.filter(
+         discountpct__gt=0)[:6]
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (AllowAny,)
+
 class CategoryViewSetREST(viewsets.ModelViewSet):
     
     #serializer_class = MovieMiniSerializer
@@ -364,6 +373,7 @@ class OrderViewSetREST(viewsets.ModelViewSet):
                 response =  serializer.data
                 print(response)
                 return Response(response, status=status.HTTP_200_OK)
+    
 
     # @action(detail=True, methods=['DELETE'])
     # def delete_cart_item(self, request):
