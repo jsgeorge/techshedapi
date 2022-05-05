@@ -28,6 +28,7 @@ from autos.views import(
     FeaturdAutoViewSetREST,
     OnSaleAutoViewSetREST,
     LatestAutoViewSetREST,
+    BestSellersAutoViewSetREST,
     CategoryViewSetREST,
     MakeViewSetREST,
     ModelViewSetREST,
@@ -35,7 +36,7 @@ from autos.views import(
     UserViewSetREST,
     OrderViewSetREST,
     FavoriteViewSetREST,
-
+    AutoReviewViewSetREST,
     
 )
 router = routers.DefaultRouter()
@@ -44,6 +45,7 @@ router.register('api/autos', AutoViewSetREST),
 router.register('api/autos/<int id>', AutoViewSetREST)
 router.register('api/featured', FeaturdAutoViewSetREST)
 router.register("api/latest", LatestAutoViewSetREST)
+router.register("api/bestsellers", BestSellersAutoViewSetREST)
 router.register("api/onsale", OnSaleAutoViewSetREST)
 router.register('api/categories', CategoryViewSetREST)
 router.register('api/makes', MakeViewSetREST)
@@ -52,8 +54,12 @@ router.register('api/trims', TrimViewSetREST)
 router.register('api/filter', AutoCategoryViewSetREST)
 router.register('api/filterbymake', AutoMakeViewSetREST)
 router.register('api/orders', OrderViewSetREST)
+router.register('api/orders/<int id>', OrderViewSetREST)
 #router.register('api/lookup', AutoSearchViewSetREST)
 router.register('api/favorites', FavoriteViewSetREST)
+router.register('api/favorites/view_item/<int id>', FavoriteViewSetREST)
+
+router.register('api/reviews', AutoReviewViewSetREST)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),

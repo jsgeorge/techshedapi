@@ -64,7 +64,8 @@ class Auto(models.Model):
     category = models.ForeignKey(Category,
                                  null=True,
                                  on_delete=models.SET_NULL)
-    stock = models.IntegerField()
+    stock = models.IntegerField(default=0)
+    sold = models.IntegerField(default=0)
     description = models.CharField(max_length=1000, null=True, blank=True)
     color = models.CharField(max_length=200,
                              choices=COLORS,
@@ -115,6 +116,7 @@ class Auto(models.Model):
         reviews = AutoReview.objects.filter(auto=self)
         return len(reviews)
 
+   
 class AutoRating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     auto= models.ForeignKey(Auto, on_delete=models.CASCADE)

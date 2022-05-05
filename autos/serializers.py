@@ -61,7 +61,7 @@ class AutoSerializer(serializers.ModelSerializer):
                   'color',  'image', 'image2', 'image3', 
                   'location', 'description', 'featured', 
                   'created_at', 'rating_cnt', 'ave_rating',
-                  'review_cnt', 'discount_price']
+                  'review_cnt',  'discount_price', 'sold']
     
     def get_votes(self, obj):
         return obj.votes.count()

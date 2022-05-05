@@ -11,6 +11,7 @@ class AutoAdmin(admin.ModelAdmin):
         'trim',
         'category',
         'stock',
+        'sold',
         'location',
         'featured',
     )
@@ -29,26 +30,26 @@ class OrderAdmin(admin.ModelAdmin):
     )
 
 class AutoRatingAdmin(admin.ModelAdmin):
-    list_display = ('auto', 'user', 'rating')
+    list_display = ('auto', 'user', 'rating',)
 
 
 class AutoReviewAdmin(admin.ModelAdmin):
-    list_display = ('auto', 'user', 'content')
+    list_display = ('auto', 'user', 'content',)
 
 
 class FavoriteAdmin(admin.ModelAdmin):
-    list_display = ('auto', 'user')
+    list_display = ('auto', 'user',)
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image')
+    list_display = ('name', 'image',)
 
 
 class MakeAdmin(admin.ModelAdmin):
-    list_display = ('name', )
+    list_display = ('name',  )
 
 
 class ModelAdmin(admin.ModelAdmin):
-    list_display = ('name', )
+    list_display = ('name',)
 
 
 class TrimAdmin(admin.ModelAdmin):
@@ -65,7 +66,7 @@ class StaffAdmin(admin.ModelAdmin):
             '<img src="{}" width="40" style="border-radius:40px"/>'.format(
                 object.image.url))
 
-    list_display = ('id', 'avatar', 'lastname', 'firstname', 'dept')
+    list_display = ('id', 'avatar', 'lastname', 'firstname', 'dept',)
     list_display_liks = ("id", "firstname")
     search_fields = ("firstname", "lastname")
 

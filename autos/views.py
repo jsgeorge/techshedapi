@@ -1,3 +1,4 @@
+from tarfile import PAX_FIELDS
 from urllib import request
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, JsonResponse
@@ -31,11 +32,9 @@ class UserViewSetREST(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['GET'])
     def current_user(self, request):
-                print('user',request.user.id)
                 curuser = User.objects.get(id=request.user.id)
                 serializer = UserSerializer(curuser, many=False)
                 response =  serializer.data
-                print(response)
                 return Response(response, status=status.HTTP_200_OK)
 
 class AutoViewSetREST(viewsets.ModelViewSet):
@@ -48,46 +47,44 @@ class AutoViewSetREST(viewsets.ModelViewSet):
     permission_classes = (AllowAny,)
 
     
-    @action(detail=False, methods=['POST'])
-    def create_new(self, request, pk=None):
-         print(request)
-         name = request.data['name']
-         year = request.data['year']
-         make = Make.objects.get(id=request.data['make'])
-         model = Model.objects.get(id=request.data['model'])
-         trim = Trim.objects.get(id=request.data['trim'])
-         category = Category.objects.get(id=request.data['category'])
-         location = request.data['location']
-         price = request.data['price']
-         stock = request.data['stock']
-         image = request.data['image']
-         auto = Auto.objects.create(
-             name=name,
-             year=year,
-             make=make,
-             model=model,
-             trim=trim,
-             category=category,
-             location=location,
-             price=price,
-             stock=stock,
-             image=image
-         )
-         serializer=AutoSerializer(auto, many=False)
-         response = {
-                    'message': "Auto created",
-                    'result': serializer.data}
-         return Response(response, status=status.HTTP_200_OK)
+    # @action(detail=False, methods=['POST'])
+    # def create_new(self, request, pk=None):
+    #      name = request.data['name']
+    #      year = request.data['year']
+    #      make = Make.objects.get(id=request.data['make'])
+    #      model = Model.objects.get(id=request.data['model'])
+    #      trim = Trim.objects.get(id=request.data['trim'])
+    #      category = Category.objects.get(id=request.data['category'])
+    #      location = request.data['location']
+    #      price = request.data['price']
+    #      stock = request.data['stock']
+    #      image = request.data['image']
+    #      auto = Auto.objects.create(
+    #          name=name,
+    #          year=year,
+    #          make=make,
+    #          model=model,
+    #          trim=trim,
+    #          category=category,
+    #          location=location,
+    #          price=price,
+    #          stock=stock,
+    #          image=image
+    #      )
+    #      serializer=AutoSerializer(auto, many=False)
+    #      response = {
+    #                 'message': "Auto created",
+    #                 'result': serializer.data}
+    #      return Response(response, status=status.HTTP_200_OK)
    
-    @action(detail=False, methods=['GET'])
-    def view_sold(self, request):
-                print('user',request.user)
-                sold_items = Auto.objects.filter(user=request.user)
-                serializer = AutoSerializer(sold_items, many=True)
-                response =  serializer.data
-                print(response)
-                return Response(response, status=status.HTTP_200_OK)
-     
+    # @action(detail=False, methods=['GET'])
+    # def view_sold(self, request):
+    #             sold_items = Auto.objects.filter(user=request.user)
+    #             serializer = AutoSerializer(sold_items, many=True)
+    #             response =  serializer.data
+    #             print(response)
+    #             return Response(response, status=status.HTTP_200_OK)
+        
     @action(detail=True, methods=['POST'])
     def order_auto(self, request, pk=None):
         if 'qty' in request.data:
@@ -97,24 +94,49 @@ class AutoViewSetREST(viewsets.ModelViewSet):
             print('auto ', auto)
             print('user ', user)
             print('qty', qty)
+            
+            # subject = request.data['subject']
+            # email = request.data['email']
+            # message = request.data['message']
+       
             try:
-                order = Order.objects.get(user=user, auto=auto)
+               
+                order = Order.objects.get(user=user, auto=auto, complete=False)
+                print("Update Order")
                 order.qty = qty
                 order.save()
                 serializer = OrderSerializer(order, many=False)
                 response = {
                     'message': "Order updated",
                     'result': serializer.data}
+
+                # auto.sold = auto.sold + qty
+                # auto.save()
+                # serializer = AutoSerializer(auto, many=False)
+
                 return Response(response, status=status.HTTP_200_OK)
                 # return redirect("/")
             except:
+                print("New Order")    
                 order = Order.objects.create(
-                    user=user,auto=auto, qty=qty)
+                    user=user,auto=auto, qty=qty, complete=False)
+              
                 serializer = OrderSerializer(order, many=False)
                 response = {
                     'message': "Order created",
                     'result': serializer.data}
-
+                #send email
+                #customerneed=  subject + ' ' + auto.name
+                # message = message
+                # email = email
+                # send_mail(
+                #     customerneed,
+                #     message,
+                #     email,
+                #     ['gmeyer49s@gmail.com'],
+                #     fail_silently=False,
+                # )
+               
                 return Response(response, status=status.HTTP_200_OK)
                 # return redirect("/")
         else:
@@ -123,15 +145,12 @@ class AutoViewSetREST(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['POST'])
     def rate_auto(self, request, pk=None):
-        print(request.data)
-        print(request.POST.get('stars'))
+
         if 'stars' in request.data:
             auto = Auto.objects.get(id=pk)
             user = request.user
             rating = request.data['stars']
-            print('autoid ', pk)
-            print('user ', user)
-            print('rating', rating)
+    
             try:
                 vote = AutoRating.objects.get(user=user, auto=auto)
                 vote.rating = rating
@@ -161,9 +180,7 @@ class AutoViewSetREST(viewsets.ModelViewSet):
             auto = Auto.objects.get(id=pk)
             user = request.user
             content = request.data['content']
-            print('auto ', auto)
-            print('user ', user)
-            print('content', content)
+        
             try:
                 review = AutoReview.objects.get(user=user, auto=auto)
                 response = {'message': "Your already wrote a review for this auto"}
@@ -184,48 +201,49 @@ class AutoViewSetREST(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['POST'])
     def like(self, request, pk=None):
-        if 'like' in request.data:
-            auto = Auto.objects.get(id=pk)
-            user = request.user
-            subject = request.data['subject']
-            email = request.data['email']
-            message = request.data['message']
-            like = request.data['like']
-            if (like) :
-                #send email
-                customerneed=  subject + ' ' + auto.name
-                message = message
-                email = email
-                send_mail(
-                    customerneed,
-                    message,
-                    email,
-                    ['gmeyer49s@gmail.com'],
-                    fail_silently=False,
-                )
-                #save to favorites
-                favorite = Favorite.objects.create(
-                    user=user,auto=auto)
-                serializer = FavoriteSerializer(favorite, many=False)
-                response = {
-                    'message': "Favorite created",
-                    'result': serializer.data}
-
-                return Response(response, status=status.HTTP_200_OK)
-                # return redirect("/")
-                
-            else:
-               favorite = Favorite.objects.get(user=user, auto=auto)
-               favorite.delete()
-               serializer = OrderSerializer(favorite, many=False)
-               response = {
+        print('LIKE', request.data['like'])
+        #if 'like' in request.data:
+        auto = Auto.objects.get(id=pk)
+        user = request.user
+        like = request.data['like']
+        try:
+            favorite = Favorite.objects.get(user=user, auto=auto)
+            favorite.delete()
+            serializer = OrderSerializer(favorite, many=False)
+            response = {
                     'message': "Favorite deleted",
                     'result': serializer.data}
-               return Response(response, status=status.HTTP_200_OK)
-               # return redirect("/")
-        else:
-            response = {'message': "Error you need to provide like"}
-            return Response(response, status=status.HTTP_400_BAD_REQUEST)
+            return Response(response, status=status.HTTP_200_OK)
+        except:
+            #save to favorites
+            favorite = Favorite.objects.create(
+                user=user,auto=auto)
+            serializer = FavoriteSerializer(favorite, many=False)
+            response = {
+                'message': "Favorite created",
+                'result': serializer.data}
+
+            return Response(response, status=status.HTTP_200_OK)
+            # return redirect("/")
+        
+    # @action(detail=False, methods=['GET'])
+    # def rating(self, request):
+    #             print('user',request.user)
+    #             print('auto', request.autoId)
+    #             list_item = Favorite.objects.filter(user=request.user,auto=request.autoId)
+    #             serializer = FavoriteSerializer(list_item, many=False)
+    #             response =  serializer.data
+    #             print(response)
+    #             return Response(response, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=['GET'])
+    def view_reviews(self, request,pk=None):
+                auto = Auto.objects.get(id=pk)
+                list_item = AutoReview.objects.filter(auto=auto)
+                serializer = AutoReviewSerializer(list_item, many=True)
+                response =  serializer.data
+                print(response)
+                return Response(response, status=status.HTTP_200_OK)
 
 
 class AutoMakeViewSetREST(viewsets.ModelViewSet):
@@ -311,7 +329,7 @@ class BestSellersAutoViewSetREST(viewsets.ModelViewSet):
     
     #serializer_class = MovieMiniSerializer
     serializer_class = AutoSerializer
-    queryset = Auto.objects.all()
+    queryset = Auto.objects.order_by('sold').reverse()[:6]
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny,)
 
@@ -367,11 +385,9 @@ class OrderViewSetREST(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['GET'])
     def view_cart(self, request):
-                print('user',request.user)
                 cart_items = Order.objects.filter(user=request.user, complete=False)
                 serializer = OrderSerializer(cart_items, many=True)
                 response =  serializer.data
-                print(response)
                 return Response(response, status=status.HTTP_200_OK)
     
 
@@ -384,6 +400,38 @@ class OrderViewSetREST(viewsets.ModelViewSet):
     #             print(response)
     #             return Response(response, status=status.HTTP_200_OK)
 
+    @action(detail=True, methods=['POST'])
+    def place_order(self, request, pk=None):
+            try:
+                user = request.user
+                qty = request.data['qty']
+                complete = request.data['complete']
+                order = Order.objects.get(id=pk )
+                print(order.auto.id)
+                order.complete=True
+                order.save()
+                serializer = OrderSerializer(order, many=False)
+                response = {
+                    'message': "Order Placed",
+                    'result': serializer.data}
+                print("Completed order")
+                auto = Auto.objects.get(id=order.auto.id)
+                auto.sold = auto.sold + qty
+                auto.save()
+                serializer = AutoSerializer(auto, many=False)
+
+                return Response(response, status=status.HTTP_200_OK)
+            except:
+                response={'message': 'Error'}
+                return Response(response, status=status.HTTP_400_BAD_REQUEST)
+  
+    @action(detail=False, methods=['GET'])
+    def view_orders(self, request):
+                cart_items = Order.objects.filter(user=request.user, complete=True)
+                serializer = OrderSerializer(cart_items, many=True)
+                response =  serializer.data
+                return Response(response, status=status.HTTP_200_OK)
+    
 class FavoriteViewSetREST(viewsets.ModelViewSet):
     queryset = Favorite.objects.all()
     serializer_class = FavoriteSerializer
@@ -399,11 +447,12 @@ class FavoriteViewSetREST(viewsets.ModelViewSet):
                 print(response)
                 return Response(response, status=status.HTTP_200_OK)
 
-    @action(detail=False, methods=['GET'])
-    def view_item(self, request):
-                print('user',request.user)
-                list_item = Favorite.objects.filter(user=request.user,auto=request.autoId)
-                serializer = FavoriteSerializer(list_item, many=False)
-                response =  serializer.data
-                print(response)
-                return Response(response, status=status.HTTP_200_OK)
+    
+class AutoReviewViewSetREST(viewsets.ModelViewSet):
+    queryset = AutoReview.objects.all()
+    serializer_class = AutoReviewSerializer
+   
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (AllowAny,)
+
+  
